@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    base: "/shadcn-nextra-header"
+    base: "/shadcn-nextra-header",
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
