@@ -1,6 +1,7 @@
 import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { AnimatedHero } from '@/components/ui/animated-hero';
+import IntegrationsSection from '@/components/ui/integrations-section';
 import { Monitor, Shield, Headphones, Zap } from 'lucide-react';
 
 const Index = () => {
@@ -68,22 +69,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="rounded-2xl gradient-hero p-8 text-center sm:p-12 lg:p-16">
-            <h2 className="font-display text-2xl font-bold text-primary-foreground sm:text-3xl lg:text-4xl">
-              Ready to Transform Your IT Experience?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
-              Join hundreds of businesses that trust Nexcubic for reliable tech support.
-            </p>
-            <Button size="lg" className="mt-8 bg-background text-foreground hover:bg-background/90">
-              Contact Us Today
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Integrations Section */}
+      <IntegrationsSection />
     </Layout>
   );
 };
