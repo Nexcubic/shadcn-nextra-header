@@ -62,7 +62,7 @@ export default function IntegrationsSection() {
               <img
                 src={url}
                 alt={`Integration ${idx + 1}`}
-                className="h-8 w-8 object-contain dark:brightness-0 dark:invert"
+                className="h-8 w-8 object-contain"
               />
             </div>
           ))}
