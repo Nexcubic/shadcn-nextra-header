@@ -12,8 +12,14 @@ export function Header() {
   const [open, setOpen] = React.useState(false);
   const scrolled = useScroll(10);
   const location = useLocation();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  
+  const isDark = resolvedTheme === 'dark';
+
+  const toggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
 
   React.useEffect(() => {
     setMounted(true);
@@ -80,20 +86,20 @@ export function Header() {
           <Button
             size="icon"
             variant="ghost"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={toggleTheme}
             aria-label="Toggle theme"
           >
-            {mounted && (theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />)}
+            {mounted && (isDark ? <Sun className="size-5" /> : <Moon className="size-5" />)}
           </Button>
         </div>
         <div className="flex items-center gap-2 md:hidden">
           <Button
             size="icon"
             variant="ghost"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={toggleTheme}
             aria-label="Toggle theme"
           >
-            {mounted && (theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />)}
+            {mounted && (isDark ? <Sun className="size-5" /> : <Moon className="size-5" />)}
           </Button>
           <Button
             size="icon"
