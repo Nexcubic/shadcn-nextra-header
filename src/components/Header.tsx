@@ -4,12 +4,20 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
+import { useTheme } from 'next-themes';
+import { Sun, Moon } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const scrolled = useScroll(10);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const links = [
     { label: 'Home', href: '/' },
@@ -69,18 +77,35 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label="Toggle theme"
+          >
+            {mounted && (theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />)}
+          </Button>
         </div>
-        <Button
-          size="icon"
-          variant="ghost"
-          onClick={() => setOpen(!open)}
-          className="md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label="Toggle menu"
-        >
-          <MenuToggleIcon open={open} className="size-5" duration={300} />
-        </Button>
+        <div className="flex items-center gap-2 md:hidden">
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label="Toggle theme"
+          >
+            {mounted && (theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />)}
+          </Button>
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label="Toggle menu"
+          >
+            <MenuToggleIcon open={open} className="size-5" duration={300} />
+          </Button>
+        </div>
       </nav>
 
       <div
