@@ -1,44 +1,38 @@
 import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
-import { Monitor, Shield, Headphones, Server, Cloud, Wrench, ArrowRight } from 'lucide-react';
+import { Code, Bot, Palette, Megaphone, Rocket, ArrowRight } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      icon: Monitor,
-      title: 'Remote Desktop Support',
-      description: 'Get real-time assistance from our certified technicians who can access your system remotely to diagnose and fix issues quickly.',
-      features: ['Instant connection', 'Screen sharing', 'File transfer', 'Multi-platform support'],
+      icon: Code,
+      title: 'Website & App Development',
+      description: 'We build custom, scalable web and mobile applications that bring your vision to life. From concept to deployment, we ensure your digital products are fast, secure, and user-friendly.',
+      features: ['Custom web applications', 'Mobile app development', 'E-commerce solutions', 'API integrations'],
     },
     {
-      icon: Shield,
-      title: 'Cybersecurity Solutions',
-      description: 'Protect your business from cyber threats with our comprehensive security services including monitoring, prevention, and incident response.',
-      features: ['Threat monitoring', 'Firewall setup', 'Malware protection', 'Security audits'],
+      icon: Bot,
+      title: 'AI Automation',
+      description: 'Streamline your operations and reduce workload with our AI-powered automation solutions. We implement intelligent systems that boost productivity and efficiency.',
+      features: ['Workflow automation', 'AI chatbots', 'Data processing', 'Smart integrations'],
     },
     {
-      icon: Server,
-      title: 'Server Management',
-      description: 'Keep your servers running at peak performance with proactive monitoring, maintenance, and optimization services.',
-      features: ['24/7 monitoring', 'Performance tuning', 'Backup solutions', 'Disaster recovery'],
+      icon: Palette,
+      title: 'Branding & UI/UX Design',
+      description: 'Create a lasting impression with our comprehensive branding and design services. We craft brand identities and user-centric interfaces that resonate with your audience.',
+      features: ['Brand identity design', 'Logo creation', 'UI/UX design', 'Design systems'],
     },
     {
-      icon: Cloud,
-      title: 'Cloud Services',
-      description: 'Migrate to the cloud seamlessly with our expert guidance and ongoing management of your cloud infrastructure.',
-      features: ['Cloud migration', 'AWS/Azure support', 'Cost optimization', 'Scalability planning'],
+      icon: Megaphone,
+      title: 'Digital Marketing & Advertising',
+      description: 'Establish a strong online presence and reach your target audience effectively. Our digital marketing strategies help businesses grow and thrive in the digital landscape.',
+      features: ['SEO optimization', 'Social media marketing', 'Content strategy', 'Paid advertising'],
     },
     {
-      icon: Headphones,
-      title: 'Help Desk Support',
-      description: 'Our dedicated help desk team is available around the clock to assist your employees with any technical issues.',
-      features: ['24/7 availability', 'Ticket tracking', 'SLA guarantees', 'Knowledge base access'],
-    },
-    {
-      icon: Wrench,
-      title: 'Hardware Support',
-      description: 'From repairs to upgrades, our technicians can handle all your hardware needs to keep your equipment running smoothly.',
-      features: ['On-site repairs', 'Hardware upgrades', 'Procurement', 'Lifecycle management'],
+      icon: Rocket,
+      title: 'Startup Support',
+      description: 'A free initiative for college students to help validate business ideas, get guidance, build brand identity, and create an online presence. We believe in nurturing the next generation of entrepreneurs.',
+      features: ['Idea validation', 'Mentorship', 'Brand building', 'MVP development'],
     },
   ];
 
@@ -52,7 +46,7 @@ const Services = () => {
               Our Services
             </h1>
             <p className="mt-6 text-lg text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Comprehensive tech support solutions designed to keep your business running smoothly and securely.
+              Comprehensive digital solutions designed to transform your ideas into impactful experiences and accelerate your growth.
             </p>
           </div>
         </div>

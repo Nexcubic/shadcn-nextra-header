@@ -1,13 +1,37 @@
 import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
-import { Users, Award, Clock, Target } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Users, Award, Clock, Target, Send } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 const About = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash === '#contact') {
+      const element = document.getElementById('contact');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, []);
+
   const stats = [
-    { label: 'Years of Experience', value: '15+' },
-    { label: 'Happy Clients', value: '500+' },
-    { label: 'Issues Resolved', value: '50K+' },
-    { label: 'Team Members', value: '25+' },
+    { label: 'Projects Delivered', value: '100+' },
+    { label: 'Happy Clients', value: '50+' },
+    { label: 'Years Experience', value: '5+' },
+    { label: 'Team Members', value: '10+' },
   ];
 
   const values = [
@@ -19,12 +43,12 @@ const About = () => {
     {
       icon: Award,
       title: 'Excellence',
-      description: 'We strive for excellence in every interaction, delivering solutions that exceed expectations.',
+      description: 'We strive for excellence in every project, delivering solutions that exceed expectations.',
     },
     {
       icon: Clock,
       title: 'Reliability',
-      description: 'Count on us to be there when you need us most, with consistent and dependable support.',
+      description: 'Count on us to deliver on time, every time, with consistent and dependable service.',
     },
     {
       icon: Target,
@@ -33,12 +57,28 @@ const About = () => {
     },
   ];
 
-  const team = [
-    { name: 'Sarah Chen', role: 'CEO & Founder', initials: 'SC' },
-    { name: 'Michael Torres', role: 'CTO', initials: 'MT' },
-    { name: 'Emily Watson', role: 'Head of Support', initials: 'EW' },
-    { name: 'David Kim', role: 'Security Lead', initials: 'DK' },
-  ];
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission - will be connected to Formsphere later
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. We'll get back to you soon.",
+    });
+    
+    setFormData({ name: '', phone: '', email: '', message: '' });
+    setIsSubmitting(false);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
   return (
     <Layout>
@@ -50,7 +90,7 @@ const About = () => {
               About Nexcubic
             </h1>
             <p className="mt-6 text-lg text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              We're a team of passionate tech experts dedicated to providing exceptional IT support for businesses of all sizes.
+              A digital solutions company based in Bangalore, India, specializing in helping startups and enterprises build an online presence and accelerate growth through technology.
             </p>
           </div>
         </div>
@@ -85,14 +125,14 @@ const About = () => {
                 Our Mission
               </h2>
               <p className="mt-6 text-lg text-muted-foreground">
-                At Nexcubic, we believe that every business deserves access to reliable, professional IT support. Our mission is to empower organizations by providing technology solutions that drive growth and efficiency.
+                At Nexcubic, we believe that every business deserves access to cutting-edge digital solutions. Our mission is to empower organizations by providing technology solutions that drive growth and efficiency.
               </p>
               <p className="mt-4 text-muted-foreground">
-                Founded in 2009, we've grown from a small local IT consultancy to a trusted technology partner for hundreds of businesses across the country. Our commitment to excellence and customer satisfaction remains at the core of everything we do.
+                We specialize in transforming ideas into impactful digital experiences. Whether you're a startup looking to establish your online presence or an enterprise seeking to accelerate growth, we have the expertise to help you succeed.
               </p>
-              <Button className="mt-8" size="lg">
-                Get in Touch
-              </Button>
+              <p className="mt-4 text-muted-foreground">
+                Based in Bangalore, India, we work with clients globally to deliver custom web and mobile applications, AI automation solutions, branding, and digital marketing services.
+              </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {values.map((value, index) => (
@@ -117,33 +157,93 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="border-t bg-muted/30 py-20">
+      {/* Contact Form */}
+      <section id="contact" className="border-t bg-muted/30 py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="text-center">
-            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-              Meet Our Leadership
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              The experienced professionals driving our success
-            </p>
-          </div>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member, index) => (
-              <div
-                key={member.name}
-                className="group text-center animate-fade-in-up"
-                style={{ animationDelay: `${0.1 * index}s` }}
-              >
-                <div className="mx-auto h-32 w-32 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 flex items-center justify-center text-2xl font-display font-bold text-foreground shadow-soft group-hover:shadow-elevated transition-all duration-300 group-hover:-translate-y-1">
-                  {member.initials}
+          <div className="mx-auto max-w-2xl">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
+                Get In Touch
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Name *
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
                 </div>
-                <h3 className="mt-4 font-display font-semibold text-foreground">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-muted-foreground">{member.role}</p>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    Phone Number *
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    placeholder="+91 9740501114"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-            ))}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  Email *
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  placeholder="Tell us about your project..."
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+              </div>
+              <Button type="submit" size="lg" className="w-full gap-2" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+                <Send className="h-4 w-4" />
+              </Button>
+            </form>
+            <div className="mt-8 text-center text-sm text-muted-foreground">
+              <p>Or reach out directly:</p>
+              <p className="mt-2">
+                <a href="mailto:sanjays@nexcubic.com" className="text-accent hover:underline">
+                  sanjays@nexcubic.com
+                </a>
+                {' '} | {' '}
+                <a href="tel:+919740501114" className="text-accent hover:underline">
+                  +91 9740501114
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>

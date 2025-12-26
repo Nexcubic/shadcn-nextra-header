@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
 export function Footer() {
@@ -11,23 +12,37 @@ export function Footer() {
               <img src={logo} alt="Nexcubic" className="h-10 w-auto" />
             </Link>
             <p className="mt-4 max-w-sm text-muted-foreground">
-              Your trusted partner for comprehensive tech support solutions. We're here to help you succeed.
+              Helping startups and enterprises build an online presence and accelerate growth through technology. Based in Bangalore, India.
             </p>
           </div>
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li><Link to="/" className="text-muted-foreground hover:text-accent transition-colors">Home</Link></li>
-              <li><Link to="/blog" className="text-muted-foreground hover:text-accent transition-colors">Blog</Link></li>
               <li><Link to="/services" className="text-muted-foreground hover:text-accent transition-colors">Services</Link></li>
+              <li><Link to="/blog" className="text-muted-foreground hover:text-accent transition-colors">Blog</Link></li>
               <li><Link to="/about" className="text-muted-foreground hover:text-accent transition-colors">About Us</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Contact</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>support@nexcubic.com</li>
-              <li>+1 (555) 123-4567</li>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-accent" />
+                <a href="mailto:sanjays@nexcubic.com" className="hover:text-accent transition-colors">
+                  sanjays@nexcubic.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-accent" />
+                <a href="tel:+919740501114" className="hover:text-accent transition-colors">
+                  +91 9740501114
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-accent" />
+                <span>Bangalore, India</span>
+              </li>
             </ul>
           </div>
         </div>
