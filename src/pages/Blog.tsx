@@ -4,85 +4,85 @@ import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const featuredPosts: Gallery4Item[] = [
   {
-    id: "cybersecurity-tips",
-    title: "10 Essential Cybersecurity Tips for Small Businesses",
-    description: "Protect your business from cyber threats with these practical and easy-to-implement security measures that every organization should know.",
+    id: "ai-automation-business",
+    title: "How AI Automation is Transforming Business Operations in 2024",
+    description: "Discover how businesses are leveraging AI to streamline operations, reduce costs, and boost productivity in the modern digital landscape.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
   },
   {
-    id: "cloud-migration",
-    title: "The Benefits of Cloud Migration for Growing Companies",
-    description: "Discover how moving to the cloud can reduce costs, improve scalability, and enhance collaboration across your organization.",
+    id: "startup-india-success",
+    title: "Startup India: Building the Next Generation of Entrepreneurs",
+    description: "Exploring the impact of the Startup India initiative and how young entrepreneurs are creating innovative solutions to real-world problems.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80",
   },
   {
-    id: "it-support-guide",
-    title: "How to Choose the Right IT Support Provider",
-    description: "Key factors to consider when selecting a technology partner for your business needs and long-term growth.",
+    id: "digital-presence-guide",
+    title: "The Complete Guide to Building Your Digital Presence",
+    description: "From website development to social media strategy, learn how to establish a strong online presence that drives growth.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
-    id: "remote-security",
-    title: "Remote Work Security: Best Practices for 2024",
-    description: "Keep your remote workforce secure with these updated security protocols and essential tools for distributed teams.",
+    id: "better-india-tech",
+    title: "Technology for Good: How Indian Startups are Making a Difference",
+    description: "Inspiring stories of Indian startups using technology to solve social challenges and create positive impact in communities.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
   },
   {
-    id: "managed-services",
-    title: "Understanding Managed IT Services vs. Break-Fix",
-    description: "Compare the two most common IT support models and find out which approach is right for your business.",
+    id: "ux-design-trends",
+    title: "UI/UX Design Trends Shaping the Future of Digital Products",
+    description: "Stay ahead of the curve with the latest design trends that are redefining user experiences across web and mobile platforms.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
   },
 ];
 
 const Blog = () => {
   const recentPosts = [
     {
-      title: 'Top 5 Server Monitoring Tools for SMBs',
-      excerpt: 'Essential tools to keep your servers running smoothly and catch issues before they become problems.',
-      date: 'Nov 15, 2024',
+      title: 'Nexcubic Launches Free Startup Support Program for College Students',
+      excerpt: 'Announcing our initiative to help aspiring entrepreneurs validate their ideas and build their first products.',
+      date: 'Dec 20, 2024',
+      readTime: '4 min read',
+      category: 'Company News',
+    },
+    {
+      title: 'The Rise of AI in Web Development',
+      excerpt: 'How AI tools are revolutionizing the way we build websites and applications, from code generation to design.',
+      date: 'Dec 15, 2024',
       readTime: '6 min read',
-      category: 'Tools',
+      category: 'AI Development',
     },
     {
-      title: 'Why Regular Data Backups Are Critical',
-      excerpt: 'Learn how a proper backup strategy can save your business from catastrophic data loss.',
-      date: 'Nov 10, 2024',
-      readTime: '5 min read',
-      category: 'Security',
-    },
-    {
-      title: 'The Rise of AI in IT Support',
-      excerpt: 'How artificial intelligence is transforming help desk operations and customer support.',
-      date: 'Nov 5, 2024',
+      title: '5 Essential Steps to Launch Your Startup in India',
+      excerpt: 'A practical guide for first-time founders navigating the Indian startup ecosystem.',
+      date: 'Dec 10, 2024',
       readTime: '7 min read',
+      category: 'Startup India',
+    },
+    {
+      title: 'How Small Businesses Can Leverage Digital Marketing',
+      excerpt: 'Cost-effective strategies to build your brand and reach customers online without breaking the bank.',
+      date: 'Dec 5, 2024',
+      readTime: '5 min read',
+      category: 'Digital Marketing',
+    },
+    {
+      title: 'The Better India: Tech Solutions Driving Social Change',
+      excerpt: 'Highlighting innovative technology solutions that are making India a better place for everyone.',
+      date: 'Nov 30, 2024',
+      readTime: '8 min read',
       category: 'Innovation',
     },
     {
-      title: 'Network Security Fundamentals',
-      excerpt: 'A comprehensive guide to securing your business network infrastructure.',
-      date: 'Oct 30, 2024',
-      readTime: '8 min read',
-      category: 'Security',
-    },
-    {
-      title: 'Optimizing Your IT Budget',
-      excerpt: 'Strategic approaches to maximize your technology investments while minimizing costs.',
-      date: 'Oct 25, 2024',
+      title: 'Building Scalable Mobile Apps: Best Practices',
+      excerpt: 'Technical insights on creating mobile applications that can grow with your business.',
+      date: 'Nov 25, 2024',
       readTime: '6 min read',
-      category: 'Business',
-    },
-    {
-      title: 'Disaster Recovery Planning Guide',
-      excerpt: 'Step-by-step instructions for creating a robust disaster recovery plan.',
-      date: 'Oct 20, 2024',
-      readTime: '9 min read',
-      category: 'Planning',
+      category: 'Development',
     },
   ];
 
@@ -96,7 +96,7 @@ const Blog = () => {
               Blog & Insights
             </h1>
             <p className="mt-6 text-lg text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Stay up to date with the latest tech trends, tips, and best practices from our expert team.
+              Stay updated with the latest in AI, startups, digital innovation, and technology trends from the Nexcubic team.
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ const Blog = () => {
       {/* Featured Posts Carousel */}
       <Gallery4 
         title="Featured Articles"
-        description="Our most popular and impactful articles to help you stay ahead in technology."
+        description="Our most popular articles on AI, startups, and digital transformation."
         items={featuredPosts}
       />
 

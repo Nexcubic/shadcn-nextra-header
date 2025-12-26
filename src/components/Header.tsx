@@ -13,8 +13,8 @@ export function Header() {
 
   const links = [
     { label: 'Home', href: '/' },
-    { label: 'Blog', href: '/blog' },
     { label: 'Services', href: '/services' },
+    { label: 'Blog', href: '/blog' },
     { label: 'About Us', href: '/about' },
   ];
 
@@ -69,6 +69,9 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <Link to="/about#contact">
+            <Button className="ml-2">Contact Us</Button>
+          </Link>
         </div>
         <Button
           size="icon"
@@ -110,6 +113,9 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link to="/about#contact" className="mt-4">
+              <Button className="w-full">Contact Us</Button>
+            </Link>
           </div>
         </div>
       </div>

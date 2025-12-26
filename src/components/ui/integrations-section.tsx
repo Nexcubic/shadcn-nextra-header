@@ -26,28 +26,28 @@ const integrations = [
 
 export default function IntegrationsSection() {
   return (
-    <section className="relative w-full overflow-hidden py-20">
+    <section className="relative w-full overflow-hidden py-20 border-t bg-muted/30">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 lg:px-8">
         {/* Left Side */}
         <div className="flex flex-col gap-6">
           <span className="w-fit rounded-full border border-accent/30 bg-accent/10 px-4 py-1 text-sm font-medium text-accent">
-            Integrations
+            Technologies We Work With
           </span>
 
           <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Connect with your favorite tools
+            Supercharge your digital presence
           </h2>
 
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Seamlessly integrate with the platforms and services your business already uses. Our solutions work with the tools you love.
+            We integrate with the latest tools and platforms to build powerful, scalable solutions that drive your business forward.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Button size="lg" asChild>
-              <Link to="/services">Browse Services</Link>
+              <Link to="/services">View Our Services</Link>
             </Button>
             <Button variant="link" size="lg" asChild>
-              <Link to="/about">Learn More →</Link>
+              <Link to="/about#contact">Get in Touch →</Link>
             </Button>
           </div>
         </div>

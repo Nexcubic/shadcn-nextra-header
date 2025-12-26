@@ -1,30 +1,34 @@
 import { Layout } from '@/components/Layout';
-import { Button } from '@/components/ui/button';
 import { AnimatedHero } from '@/components/ui/animated-hero';
 import IntegrationsSection from '@/components/ui/integrations-section';
-import { Monitor, Shield, Headphones, Zap } from 'lucide-react';
+import { Code, Bot, Palette, Megaphone, Rocket } from 'lucide-react';
 
 const Index = () => {
   const features = [
     {
-      icon: Monitor,
-      title: 'Remote Support',
-      description: 'Get instant help from our experts without leaving your desk.',
+      icon: Code,
+      title: 'Website & App Development',
+      description: 'Building custom, scalable web and mobile applications tailored to your needs.',
     },
     {
-      icon: Shield,
-      title: 'Security Solutions',
-      description: 'Protect your business with enterprise-grade security.',
+      icon: Bot,
+      title: 'AI Automation',
+      description: 'Streamlining tasks and boosting productivity using powerful AI tools.',
     },
     {
-      icon: Headphones,
-      title: '24/7 Helpdesk',
-      description: 'Round-the-clock support whenever you need it.',
+      icon: Palette,
+      title: 'Branding & UI/UX Design',
+      description: 'Crafting brand identities and user-centric interfaces that stand out.',
     },
     {
-      icon: Zap,
-      title: 'Fast Resolution',
-      description: 'Quick turnaround times with expert technicians.',
+      icon: Megaphone,
+      title: 'Digital Marketing',
+      description: 'Helping businesses establish a strong online presence and grow.',
+    },
+    {
+      icon: Rocket,
+      title: 'Startup Support',
+      description: 'Free initiative for college students to validate ideas and build brands.',
     },
   ];
 
@@ -44,10 +48,10 @@ const Index = () => {
               Why Choose Nexcubic?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Comprehensive tech support tailored to your needs
+              Transform your ideas into impactful digital experiences
             </p>
           </div>
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {features.map((feature, index) => (
               <div
                 key={feature.title}
