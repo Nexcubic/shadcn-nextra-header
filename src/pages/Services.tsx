@@ -1,6 +1,7 @@
 import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Code, Bot, Palette, Megaphone, Rocket, ArrowRight } from 'lucide-react';
+import StackFeatureSection from '@/components/ui/stack-feature-section';
 
 const Services = () => {
   const services = [
@@ -38,19 +39,8 @@ const Services = () => {
 
   return (
     <Layout>
-      {/* Header */}
-      <section className="relative overflow-hidden border-b bg-muted/30">
-        <div className="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl animate-fade-in">
-              Our Services
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Comprehensive digital solutions designed to transform your ideas into impactful experiences and accelerate your growth.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section with Orbit Animation */}
+      <StackFeatureSection />
 
       {/* Services Grid */}
       <section className="py-20">
