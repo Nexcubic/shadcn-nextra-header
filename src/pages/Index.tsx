@@ -1,6 +1,7 @@
 import { Layout } from '@/components/Layout';
 import { AnimatedHero } from '@/components/ui/animated-hero';
 import IntegrationsSection from '@/components/ui/integrations-section';
+import { ShuffleHero } from '@/components/ui/shuffle-grid';
 import { Code, Bot, Palette, Megaphone, Rocket } from 'lucide-react';
 
 const Index = () => {
@@ -40,8 +41,13 @@ const Index = () => {
         <AnimatedHero />
       </section>
 
+      {/* Shuffle Hero Section */}
+      <section className="border-t bg-muted/30 py-12">
+        <ShuffleHero />
+      </section>
+
       {/* Features Section */}
-      <section className="border-t bg-muted/30 py-20">
+      <section className="border-t py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
