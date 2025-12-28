@@ -2,6 +2,8 @@ import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Code, Bot, Palette, Megaphone, Rocket, ArrowRight } from 'lucide-react';
 import StackFeatureSection from '@/components/ui/stack-feature-section';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Services = () => {
   const services = [
@@ -39,6 +41,16 @@ const Services = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Services - Nexcubic | Web Development, AI Automation, Branding, Digital Marketing</title>
+        <meta name="description" content="Explore Nexcubic's services: custom web & mobile app development, AI automation, branding & UI/UX design, digital marketing, and free startup support for students." />
+        <meta name="keywords" content="web development services, mobile app development, AI automation services, branding services, UI/UX design, digital marketing, startup support" />
+        <link rel="canonical" href="https://nexcubic.com/services" />
+        <meta property="og:title" content="Services - Nexcubic" />
+        <meta property="og:description" content="Custom web & mobile development, AI automation, branding, digital marketing, and startup support services." />
+        <meta property="og:url" content="https://nexcubic.com/services" />
+      </Helmet>
+
       {/* Hero Section with Orbit Animation */}
       <StackFeatureSection />
 
@@ -47,7 +59,7 @@ const Services = () => {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
-              <div
+              <article
                 key={service.title}
                 className="group flex flex-col rounded-xl border bg-card p-6 shadow-soft transition-all duration-300 hover:shadow-elevated animate-fade-in-up"
                 style={{ animationDelay: `${0.05 * index}s` }}
@@ -69,10 +81,12 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="ghost" className="mt-6 w-full justify-between">
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
+                <Link to="/about#contact">
+                  <Button variant="ghost" className="mt-6 w-full justify-between">
+                    Get Started <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </article>
             ))}
           </div>
         </div>
