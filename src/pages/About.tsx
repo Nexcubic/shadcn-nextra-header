@@ -36,13 +36,6 @@ const About = () => {
     }
   }, []);
 
-  const stats = [
-    { label: 'Projects Delivered', value: '100+' },
-    { label: 'Happy Clients', value: '50+' },
-    { label: 'Years Experience', value: '5+' },
-    { label: 'Team Members', value: '10+' },
-  ];
-
   const values = [
     {
       icon: Users,
@@ -142,25 +135,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b py-12">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            {stats.map((stat, index) => (
-              <div 
-                key={stat.label} 
-                className="text-center animate-fade-in-up"
-                style={{ animationDelay: `${0.1 * index}s` }}
-              >
-                <div className="font-display text-3xl font-bold text-accent sm:text-4xl">
-                  {stat.value}
-                </div>
-                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Mission */}
       <section className="py-20">
