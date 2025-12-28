@@ -6,12 +6,13 @@ import { Users, Award, Clock, Target, Send } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import { Helmet } from 'react-helmet-async';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   phone: z.string().trim().min(1, "Phone number is required").regex(/^[\d\s\+\-\(\)]+$/, "Invalid phone number format"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  message: z.string().trim().max(1000, "Message must be less than 1000 characters").optional(),
+  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
 });
 
 const About = () => {
@@ -121,6 +122,16 @@ const About = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>About Us - Nexcubic | Digital Solutions Company in Bangalore</title>
+        <meta name="description" content="Learn about Nexcubic, a Bangalore-based digital solutions company helping startups and enterprises build online presence through web development, AI automation, and branding." />
+        <meta name="keywords" content="about Nexcubic, digital solutions Bangalore, tech company India, startup support, web development company" />
+        <link rel="canonical" href="https://nexcubic.com/about" />
+        <meta property="og:title" content="About Nexcubic - Digital Solutions Company" />
+        <meta property="og:description" content="Helping startups and enterprises build an online presence and accelerate growth through technology." />
+        <meta property="og:url" content="https://nexcubic.com/about" />
+      </Helmet>
+
       {/* Header */}
       <section className="relative overflow-hidden border-b bg-muted/30">
         <div className="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-24">
@@ -134,7 +145,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
 
       {/* Mission */}
       <section className="py-20">
@@ -181,19 +191,19 @@ const About = () => {
       <section id="contact" className="border-t bg-muted/30 py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <div className="mx-auto max-w-2xl">
-            <div className="text-center mb-12">
+            <header className="text-center mb-12">
               <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
                 Get In Touch
               </h2>
               <p className="mt-4 text-muted-foreground">
                 Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
               </p>
-            </div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            </header>
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name *
+                    Name <span className="text-destructive">*</span>
                   </label>
                   <Input
                     id="name"
@@ -204,12 +214,13 @@ const About = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className={errors.name ? 'border-destructive' : ''}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
                   />
-                  {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
+                  {errors.name && <p id="name-error" className="text-sm text-destructive mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number *
+                    Phone Number <span className="text-destructive">*</span>
                   </label>
                   <Input
                     id="phone"
@@ -220,13 +231,14 @@ const About = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={errors.phone ? 'border-destructive' : ''}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
                   />
-                  {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
+                  {errors.phone && <p id="phone-error" className="text-sm text-destructive mt-1">{errors.phone}</p>}
                 </div>
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email *
+                  Email <span className="text-destructive">*</span>
                 </label>
                 <Input
                   id="email"
@@ -237,21 +249,26 @@ const About = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={errors.email ? 'border-destructive' : ''}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                 />
-                {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
+                {errors.email && <p id="email-error" className="text-sm text-destructive mt-1">{errors.email}</p>}
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
+                  Message <span className="text-destructive">*</span>
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   rows={4}
+                  required
                   placeholder="Tell us about your project..."
                   value={formData.message}
                   onChange={handleChange}
+                  className={errors.message ? 'border-destructive' : ''}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                 />
+                {errors.message && <p id="message-error" className="text-sm text-destructive mt-1">{errors.message}</p>}
               </div>
               <Button type="submit" size="lg" className="w-full gap-2" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send Message'}
