@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import womensSpecialImg from '@/assets/womens-special.png';
+import studentProgramImg from '@/assets/student-program.png';
 
 const featuredPosts: Gallery4Item[] = [
   {
@@ -74,7 +75,7 @@ const Blog = () => {
       readTime: '3 min',
       category: 'Nexcubic',
       link: '/about#contact',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=580&q=80',
+      image: studentProgramImg,
     },
     {
       title: 'Bengaluru Family Startup Earns Rs 5.2 Cr/Year With Bio-Degradable Packaging',
