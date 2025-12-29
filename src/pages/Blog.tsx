@@ -3,6 +3,8 @@ import { Gallery4, Gallery4Item } from '@/components/ui/gallery4';
 import { Calendar, Clock, ArrowRight, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import womensSpecialImg from '@/assets/womens-special.png';
 
 const featuredPosts: Gallery4Item[] = [
   {
@@ -71,17 +73,8 @@ const Blog = () => {
       date: 'Dec 29, 2025',
       readTime: '3 min',
       category: 'Nexcubic',
-      link: '/services',
+      link: '/about#contact',
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=580&q=80',
-    },
-    {
-      title: 'Special Offer for Women Entrepreneurs & Startups',
-      excerpt: 'Nexcubic is committed to empowering women in tech. Avail exclusive discounts and mentorship programs designed specifically for women-led startups and businesses.',
-      date: 'Dec 29, 2025',
-      readTime: '3 min',
-      category: 'Nexcubic',
-      link: '/services',
-      image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=580&q=80',
     },
     {
       title: 'Bengaluru Family Startup Earns Rs 5.2 Cr/Year With Bio-Degradable Packaging',
@@ -118,6 +111,15 @@ const Blog = () => {
       category: 'Startup',
       link: 'https://thebetterindia.com/startup/kamal-gulati-gk-studio-salon-bill-anxiety-women-delhi-ncr-affordable-beauty-10946939',
       image: 'https://img-cdn.publive.online/fit-in/580x348/filters:format(webp)/english-betterindia/media/media_files/2025/12/26/gk-studio-2025-12-26-13-46-12.png',
+    },
+    {
+      title: 'How This Mother-Daughter Duo Started a Rs 1 Crore Business From Home',
+      excerpt: 'Starting with just Rs 10,000, this duo built a thriving home-based business that now earns Rs 1 crore annually selling handmade products online.',
+      date: 'Dec 29, 2025',
+      readTime: '4 min',
+      category: 'Startup',
+      link: 'https://thebetterindia.com/startup/mother-daughter-home-business-success-story/',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=580&q=80',
     },
   ];
 
@@ -180,24 +182,39 @@ const Blog = () => {
                 className="group flex flex-col rounded-xl border bg-card overflow-hidden shadow-soft transition-all duration-300 hover:shadow-elevated hover:-translate-y-1 animate-fade-in-up"
                 style={{ animationDelay: `${0.05 * index}s` }}
               >
-                <a href={post.link} target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                </a>
+                {post.link.startsWith('/') ? (
+                  <Link to={post.link} className="block">
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  </Link>
+                ) : (
+                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  </a>
+                )}
                 <div className="flex flex-1 flex-col p-6">
                   <span className="mb-2 inline-flex w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
                     {post.category}
                   </span>
                   <h3 className="font-display text-lg font-semibold text-foreground line-clamp-2 group-hover:text-accent transition-colors">
-                    <a href={post.link} target="_blank" rel="noopener noreferrer">
-                      {post.title}
-                    </a>
+                    {post.link.startsWith('/') ? (
+                      <Link to={post.link}>{post.title}</Link>
+                    ) : (
+                      <a href={post.link} target="_blank" rel="noopener noreferrer">{post.title}</a>
+                    )}
                   </h3>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">
                     {post.excerpt}
@@ -212,17 +229,84 @@ const Blog = () => {
                       {post.readTime}
                     </span>
                   </div>
-                  <a 
-                    href={post.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="mt-4 flex items-center text-sm font-medium text-accent group-hover:underline"
-                  >
-                    View Story <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  {post.link.startsWith('/') ? (
+                    <Link 
+                      to={post.link}
+                      className="mt-4 flex items-center text-sm font-medium text-accent hover:underline"
+                    >
+                      View Story <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  ) : (
+                    <a 
+                      href={post.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="mt-4 flex items-center text-sm font-medium text-accent hover:underline"
+                    >
+                      View Story <ArrowRight className="ml-1 h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Women Special Offer - Big Featured Post */}
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-accent/5 via-background to-primary/5 border-t">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-2 items-center">
+            <div className="order-2 lg:order-1 animate-fade-in-up">
+              <span className="inline-flex rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent mb-4">
+                Special Offer
+              </span>
+              <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl mb-6">
+                Women's Special Offer
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                <strong>Connect with your idea and get your business going.</strong>
+              </p>
+              <p className="text-muted-foreground mb-6">
+                At Nexcubic, we are committed to empowering women entrepreneurs and startups. We believe that women-led businesses have the power to transform industries and create lasting impact. That's why we're offering exclusive benefits designed specifically for women in business.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-accent mt-2" />
+                  <span className="text-muted-foreground">Up to <strong>30% discount</strong> on all our services</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-accent mt-2" />
+                  <span className="text-muted-foreground"><strong>Free consultation</strong> and business guidance sessions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-accent mt-2" />
+                  <span className="text-muted-foreground">Priority support for <strong>GST, Udhyam & Startup India</strong> registrations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-accent mt-2" />
+                  <span className="text-muted-foreground"><strong>Mentorship program</strong> with industry experts</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-accent mt-2" />
+                  <span className="text-muted-foreground"><strong>Networking opportunities</strong> with other women entrepreneurs</span>
+                </li>
+              </ul>
+              <Link to="/about#contact">
+                <Button size="lg" className="gap-2">
+                  Get Started Today <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+            <div className="order-1 lg:order-2 animate-fade-in">
+              <div className="rounded-2xl overflow-hidden shadow-elevated">
+                <img 
+                  src={womensSpecialImg} 
+                  alt="Nexcubic Women's Special Offer - Connect with your idea and get your business going"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

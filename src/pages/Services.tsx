@@ -1,6 +1,6 @@
 import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
-import { Code, Bot, Palette, Megaphone, Rocket, ArrowRight } from 'lucide-react';
+import { Code, Bot, Palette, Megaphone, Rocket, ArrowRight, FileText, Award, Building, Users, BadgeCheck, Calculator } from 'lucide-react';
 import StackFeatureSection from '@/components/ui/stack-feature-section';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -37,17 +37,47 @@ const Services = () => {
       description: 'A free initiative for college students to help validate business ideas, get guidance, build brand identity, and create an online presence. We believe in nurturing the next generation of entrepreneurs.',
       features: ['Idea validation', 'Mentorship', 'Brand building', 'MVP development'],
     },
+    {
+      icon: Calculator,
+      title: 'GST Registration & Filing',
+      description: 'Complete GST registration and compliance services for your business. We handle all the paperwork and ensure timely filing to keep your business compliant with tax regulations.',
+      features: ['GST registration', 'Monthly/quarterly filing', 'GST returns', 'Compliance support'],
+    },
+    {
+      icon: FileText,
+      title: 'Udhyam Registration',
+      description: 'Get your MSME/Udhyam registration done hassle-free. We help you obtain official recognition as a micro, small, or medium enterprise with all associated benefits.',
+      features: ['Udhyam certificate', 'MSME benefits access', 'Government scheme eligibility', 'Quick processing'],
+    },
+    {
+      icon: BadgeCheck,
+      title: 'Trademark Registration',
+      description: 'Protect your brand identity with our comprehensive trademark registration services. We guide you through the entire process from search to certificate.',
+      features: ['Trademark search', 'Application filing', 'Objection handling', 'Certificate procurement'],
+    },
+    {
+      icon: Award,
+      title: 'Startup India Registration',
+      description: 'Register your startup under the Startup India initiative and unlock tax benefits, funding opportunities, and government support programs.',
+      features: ['DPIIT recognition', 'Tax exemptions', 'Funding access', 'Compliance support'],
+    },
+    {
+      icon: Users,
+      title: 'Payroll & HR Services',
+      description: 'Comprehensive payroll management and HR solutions to streamline your workforce operations. From salary processing to compliance, we handle it all.',
+      features: ['Salary processing', 'PF & ESI compliance', 'HR documentation', 'Employee management'],
+    },
   ];
 
   return (
     <Layout>
       <Helmet>
-        <title>Services - Nexcubic | Web Development, AI Automation, Branding, Digital Marketing</title>
-        <meta name="description" content="Explore Nexcubic's services: custom web & mobile app development, AI automation, branding & UI/UX design, digital marketing, and free startup support for students." />
-        <meta name="keywords" content="web development services, mobile app development, AI automation services, branding services, UI/UX design, digital marketing, startup support" />
+        <title>Services - Nexcubic | Web Development, AI Automation, GST, Trademark, Startup India</title>
+        <meta name="description" content="Explore Nexcubic's services: web & app development, AI automation, branding, digital marketing, GST registration, Udhyam, Trademark, Startup India registration, and Payroll & HR services." />
+        <meta name="keywords" content="web development, mobile app development, AI automation, branding, digital marketing, GST registration, Udhyam registration, trademark registration, Startup India, payroll services, HR services" />
         <link rel="canonical" href="https://nexcubic.com/services" />
         <meta property="og:title" content="Services - Nexcubic" />
-        <meta property="og:description" content="Custom web & mobile development, AI automation, branding, digital marketing, and startup support services." />
+        <meta property="og:description" content="Complete business solutions: development, automation, branding, marketing, and compliance services." />
         <meta property="og:url" content="https://nexcubic.com/services" />
       </Helmet>
 
