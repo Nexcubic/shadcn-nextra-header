@@ -72,20 +72,20 @@ const Blog = () => {
   const recentPosts = [
     {
       title: 'WaveTea - First Student Success Story',
-      excerpt: 'Meet our first student entrepreneur! A college student turned their passion for tropical smoothies and iced herbal teas into a thriving beverage brand with complete support from Nexcubic — 100% free.',
+      excerpt: 'Meet our first student entrepreneur! A college student turned their passion for tropical smoothies and iced herbal teas into a thriving beverage brand with complete support from Nexcubic — 100% free. Visit wavetea.shop',
       date: 'Dec 30, 2025',
       readTime: '4 min',
       category: 'Student Success',
-      link: 'https://www.wavetea.shop',
+      link: 'https://www.instagram.com/nexcubic/',
       image: waveteaImg,
     },
     {
       title: 'Trembly - Fashion Startup by Our Student',
-      excerpt: 'From a dorm room idea to a fashion brand launching soon! Discover how this student built Trembly with trendy outfits, stylish cuts, bold colors, and unique textures — powered by Nexcubic\'s free student program.',
+      excerpt: 'From a dorm room idea to a fashion brand launching soon! Discover how this student built Trembly with trendy outfits, stylish cuts, bold colors, and unique textures — powered by Nexcubic\'s free student program. Visit trembly.shop',
       date: 'Dec 30, 2025',
       readTime: '4 min',
       category: 'Student Success',
-      link: 'https://www.trembly.shop',
+      link: 'https://www.instagram.com/nexcubic/',
       image: tremblyImg,
     },
     {
@@ -94,7 +94,7 @@ const Blog = () => {
       date: 'Dec 29, 2025',
       readTime: '3 min',
       category: 'Nexcubic',
-      link: '/about#contact',
+      link: 'https://www.instagram.com/nexcubic/',
       image: studentProgramImg,
     },
     {
