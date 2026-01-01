@@ -55,9 +55,9 @@ export const ShuffleHero = () => {
         </Link>
       </div>
       
-      {/* Student Success Stories - Two Images */}
-      <div className="flex flex-col gap-6">
-        <motion.div 
+      {/* Student Success Stories - Two Images Side by Side */}
+      <div className="grid grid-cols-2 gap-4">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
