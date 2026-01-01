@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import womensSpecialImg from '@/assets/womens-special.png';
 import studentProgramImg from '@/assets/student-program.png';
+import waveteaImg from '@/assets/wavetea-student.png';
+import tremblyImg from '@/assets/trembly-student.png';
 
 const featuredPosts: Gallery4Item[] = [
   {
@@ -69,6 +71,24 @@ const featuredPosts: Gallery4Item[] = [
 const Blog = () => {
   const recentPosts = [
     {
+      title: 'WaveTea - First Student Success Story',
+      excerpt: 'Meet our first student entrepreneur! A college student turned their passion for tropical smoothies and iced herbal teas into a thriving beverage brand with complete support from Nexcubic — 100% free.',
+      date: 'Dec 30, 2025',
+      readTime: '4 min',
+      category: 'Student Success',
+      link: 'https://www.wavetea.shop',
+      image: waveteaImg,
+    },
+    {
+      title: 'Trembly - Fashion Startup by Our Student',
+      excerpt: 'From a dorm room idea to a fashion brand launching soon! Discover how this student built Trembly with trendy outfits, stylish cuts, bold colors, and unique textures — powered by Nexcubic\'s free student program.',
+      date: 'Dec 30, 2025',
+      readTime: '4 min',
+      category: 'Student Success',
+      link: 'https://www.trembly.shop',
+      image: tremblyImg,
+    },
+    {
       title: 'Nexcubic Student Program - Launch Your Tech Career',
       excerpt: 'Join our exclusive student program designed to bridge the gap between academic learning and industry demands. Get hands-on experience, mentorship, and real project opportunities.',
       date: 'Dec 29, 2025',
@@ -103,24 +123,6 @@ const Blog = () => {
       category: 'Young Innovators',
       link: 'https://thebetterindia.com/youth/young-innovators/up-teen-pooja-pal-dust-free-threshing-machine-farm-innovation-tokyo-inspire-award-10919573',
       image: 'https://img-cdn.publive.online/fit-in/580x348/filters:format(webp)/english-betterindia/media/media_files/2025/12/18/feature-size-2025-12-18-00-57-14.png',
-    },
-    {
-      title: 'Delhi Man Helping 30000+ Women Feel Less Anxious About Salon Bills',
-      excerpt: 'How Kamal Gulati built GK Studio where women could feel sure of the bill before the service began, removing salon bill anxiety.',
-      date: 'Dec 29, 2025',
-      readTime: '5 min',
-      category: 'Startup',
-      link: 'https://thebetterindia.com/startup/kamal-gulati-gk-studio-salon-bill-anxiety-women-delhi-ncr-affordable-beauty-10946939',
-      image: 'https://img-cdn.publive.online/fit-in/580x348/filters:format(webp)/english-betterindia/media/media_files/2025/12/26/gk-studio-2025-12-26-13-46-12.png',
-    },
-    {
-      title: 'How This Mother-Daughter Duo Started a Rs 1 Crore Business From Home',
-      excerpt: 'Starting with just Rs 10,000, this duo built a thriving home-based business that now earns Rs 1 crore annually selling handmade products online.',
-      date: 'Dec 29, 2025',
-      readTime: '4 min',
-      category: 'Startup',
-      link: 'https://thebetterindia.com/startup/mother-daughter-home-business-success-story/',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=580&q=80',
     },
   ];
 
