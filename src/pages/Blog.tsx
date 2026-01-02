@@ -187,22 +187,22 @@ const Blog = () => {
               >
                 {post.link.startsWith('/') ? (
                   <Link to={post.link} className="block">
-                    <div className="h-48 overflow-hidden">
+                    <div className="bg-muted/50 p-3">
                       <img 
                         src={post.image} 
                         alt={post.title}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>
                   </Link>
                 ) : (
                   <a href={post.link} target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="h-48 overflow-hidden">
+                    <div className="bg-muted/50 p-3">
                       <img 
                         src={post.image} 
                         alt={post.title}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>
