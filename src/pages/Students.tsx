@@ -170,11 +170,11 @@ const Students = () => {
                 viewport={{ once: true }}
                 className="bg-background rounded-2xl overflow-hidden shadow-lg border border-border"
               >
-                <div className="aspect-video overflow-hidden">
+                <div className="bg-muted/50 p-4">
                   <img 
                     src={story.image} 
                     alt={story.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
