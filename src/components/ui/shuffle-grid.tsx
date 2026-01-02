@@ -48,11 +48,11 @@ export const ShuffleHero = () => {
           </div>
         </div>
 
-        <Link to="/about#contact">
-          <Button size="lg" className="gap-2">
+        <Button size="lg" className="gap-2" asChild>
+          <Link to="/about#contact">
             Apply for Free Program <MoveRight className="h-4 w-4" />
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
       
       {/* Student Success Stories - Two Images Side by Side */}
