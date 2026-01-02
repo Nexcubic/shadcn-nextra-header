@@ -69,7 +69,7 @@ const Students = () => {
     "Have a viable business idea or early-stage startup",
     "Committed to building and growing your venture",
     "Ready to collaborate and take feedback",
-    "Based in Pakistan (priority) or anywhere globally"
+    "Based in Bangalore, India (priority) or anywhere globally"
   ];
 
   return (
