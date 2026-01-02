@@ -27,11 +27,11 @@ function AnimatedHero() {
       <div className="container mx-auto">
         <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-32">
           <div>
-            <Link to="/blog">
-              <Button variant="secondary" size="sm" className="gap-4">
+            <Button variant="secondary" size="sm" className="gap-4" asChild>
+              <Link to="/blog">
                 Explore our insights <MoveRight className="h-4 w-4" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
           <div className="flex flex-col gap-4">
             <h1 className="max-w-2xl text-center font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
@@ -67,11 +67,11 @@ function AnimatedHero() {
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Link to="/about#contact">
-              <Button size="lg" className="gap-4">
+            <Button size="lg" className="gap-4" asChild>
+              <Link to="/about#contact">
                 Get Started <MoveRight className="h-4 w-4" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
