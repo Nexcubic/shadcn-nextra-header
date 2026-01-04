@@ -3,7 +3,7 @@ import Layout from '@/components/Layout';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Rocket, Palette, Globe, TrendingUp, Users, CheckCircle, ArrowRight } from 'lucide-react';
+import { GraduationCap, Rocket, Palette, Globe, TrendingUp, Users, CheckCircle, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import waveteaImage from '@/assets/wavetea-student.png';
 import tremblyImage from '@/assets/trembly-student.png';
@@ -100,17 +100,28 @@ const Students = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 We believe in student potential. Get professional branding, web development, and marketing support at zero cost. Your idea deserves to shine.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/about#contact">
-                  <Button size="lg" className="gap-2">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
+                <Button size="lg" className="gap-2" asChild>
+                  <Link to="/about#contact">
                     Apply Now <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </Link>
-                <a href="https://www.instagram.com/nexcubic/" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline">
+                  </Link>
+                </Button>
+
+                <Button size="lg" variant="outline" className="gap-2" asChild>
+                  <a
+                    href="https://chat.whatsapp.com/EKFtXyEKBmVIAthtpeKVY9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Join WhatsApp Community <MessageCircle className="w-4 h-4" />
+                  </a>
+                </Button>
+
+                <Button size="lg" variant="outline" asChild>
+                  <a href="https://www.instagram.com/nexcubic/" target="_blank" rel="noopener noreferrer">
                     See Our Work
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </motion.div>
           </div>

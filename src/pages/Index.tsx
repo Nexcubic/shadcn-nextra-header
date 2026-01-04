@@ -48,7 +48,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 gradient-hero opacity-5" />
+        <div className="absolute inset-0 gradient-hero opacity-5 pointer-events-none" aria-hidden="true" />
         <AnimatedHero />
       </section>
 
