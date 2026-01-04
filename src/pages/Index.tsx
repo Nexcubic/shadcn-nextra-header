@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout';
 import { AnimatedHero } from '@/components/ui/animated-hero';
 import IntegrationsSection from '@/components/ui/integrations-section';
 import { ShuffleHero } from '@/components/ui/shuffle-grid';
-import { Code, Bot, Palette, Megaphone, Rocket } from 'lucide-react';
+import { Code, Bot, Palette, Megaphone, Rocket, GraduationCap } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
@@ -31,6 +31,11 @@ const Index = () => {
       icon: Rocket,
       title: 'Startup Support',
       description: 'Free initiative for college students to validate ideas and build brands.',
+    },
+    {
+      icon: GraduationCap,
+      title: 'Student Training',
+      description: 'Hands-on training in AI, web development, and emerging technologies.',
     },
   ];
 
