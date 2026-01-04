@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MoveRight } from "lucide-react";
+import { MoveRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -26,13 +26,6 @@ function AnimatedHero() {
     <div className="w-full">
       <div className="container mx-auto">
         <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-32">
-          <div>
-            <Button variant="secondary" size="sm" className="gap-4" asChild>
-              <Link to="/blog">
-                Explore our insights <MoveRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
           <div className="flex flex-col gap-4">
             <h1 className="max-w-2xl text-center font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
               Digital solutions that are
@@ -66,11 +59,20 @@ function AnimatedHero() {
               and accelerate growth through cutting-edge technology solutions.
             </p>
           </div>
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-col items-center gap-3 sm:flex-row">
             <Button size="lg" className="gap-4" asChild>
               <Link to="/about#contact">
                 Get Started <MoveRight className="h-4 w-4" />
               </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="gap-4" asChild>
+              <a
+                href="https://chat.whatsapp.com/EKFtXyEKBmVIAthtpeKVY9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join WhatsApp Community <MessageCircle className="h-4 w-4" />
+              </a>
             </Button>
           </div>
         </div>
