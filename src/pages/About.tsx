@@ -2,7 +2,8 @@ import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Users, Award, Clock, Target, Send } from 'lucide-react';
+import { Users, Award, Clock, Target, Send, Linkedin, Mail } from 'lucide-react';
+import sanjayProfile from '@/assets/sanjay-profile.jpg';
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
@@ -182,6 +183,58 @@ const About = () => {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder Section */}
+      <section className="border-t py-20">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
+              Meet Our Founder
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              The visionary behind Nexcubic
+            </p>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <div className="flex flex-col md:flex-row items-center gap-8 rounded-2xl border bg-card p-8 shadow-soft">
+              <div className="flex-shrink-0">
+                <img
+                  src={sanjayProfile}
+                  alt="Sanjay S - Founder & Mentor at Nexcubic"
+                  className="h-48 w-48 rounded-full object-cover border-4 border-accent/20 shadow-lg"
+                />
+              </div>
+              <div className="text-center md:text-left">
+                <h3 className="font-display text-2xl font-bold text-foreground">
+                  Sanjay S
+                </h3>
+                <p className="text-accent font-medium mt-1">Founder & Mentor</p>
+                <p className="mt-4 text-muted-foreground">
+                  A passionate tech entrepreneur and mentor dedicated to helping startups and students succeed in the digital world. With expertise in AI, web development, and digital marketing, Sanjay leads Nexcubic's mission to empower businesses with cutting-edge technology solutions.
+                </p>
+                <div className="mt-6 flex items-center justify-center md:justify-start gap-4">
+                  <a
+                    href="mailto:sanjays@nexcubic.com"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                  >
+                    <Mail className="h-4 w-4" />
+                    sanjays@nexcubic.com
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/sanjay-s-nexcubic/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
