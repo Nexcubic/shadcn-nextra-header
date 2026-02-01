@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Users, Award, Clock, Target, Send, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Users, Award, Clock, Target, Send, Linkedin, Instagram } from 'lucide-react';
 import sanjayProfile from '@/assets/sanjay-profile.jpg';
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -218,29 +218,22 @@ const About = () => {
                 </p>
                 <div className="mt-6 flex items-center justify-center md:justify-start gap-4">
                   <a
-                    href="mailto:sanjays@nexcubic.com"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    <Mail className="h-4 w-4" />
-                    sanjays@nexcubic.com
-                  </a>
-                  <a
                     href="https://www.linkedin.com/in/sanjay-s-258781240/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                    className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-[#0A66C2] text-white hover:opacity-80 transition-opacity"
+                    aria-label="LinkedIn"
                   >
-                    <Linkedin className="h-4 w-4" />
-                    LinkedIn
+                    <Linkedin className="h-5 w-5" />
                   </a>
                   <a
                     href="https://www.instagram.com/sanjay.s.journey/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                    className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white hover:opacity-80 transition-opacity"
+                    aria-label="Instagram"
                   >
-                    <Instagram className="h-4 w-4" />
-                    Instagram
+                    <Instagram className="h-5 w-5" />
                   </a>
                 </div>
               </div>
