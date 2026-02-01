@@ -11,6 +11,27 @@ import tremblyImg from '@/assets/trembly-student.png';
 
 const featuredPosts: Gallery4Item[] = [
   {
+    id: "google-ai-studio-2025",
+    title: "Google AI Studio: Build AI Apps Without Code in 2025",
+    description: "Google AI Studio lets you prototype and build generative AI applications with Gemini models. Create chatbots, content generators, and more — all from your browser.",
+    href: "https://aistudio.google.com/",
+    image: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_SS.width-1300.format-webp.webp",
+  },
+  {
+    id: "lovable-ai-coding",
+    title: "Lovable: The AI That Builds Full-Stack Apps From Your Ideas",
+    description: "Lovable is revolutionizing how we build software. Describe what you want, and watch AI create beautiful, functional web applications in real-time.",
+    href: "https://lovable.dev/",
+    image: "https://lovable.dev/og-image.png",
+  },
+  {
+    id: "gemini-2-flash",
+    title: "Google Launches Gemini 2.0 Flash — Faster, Smarter AI for Everyone",
+    description: "Google's latest Gemini 2.0 Flash model delivers unprecedented speed and intelligence, making advanced AI accessible for developers and creators worldwide.",
+    href: "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
+    image: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_SS.width-1300.format-webp.webp",
+  },
+  {
     id: "waste-recycling-delhi",
     title: "20-YO Delhi Boy Recycles 450 Tonnes of Waste & Brings Dignity to 70 Waste Pickers",
     description: "A chance conversation with a waste collector changed how 20-year-old Karan saw Delhi's recycling chain. Finobadi has processed 450 tonnes of waste and planted 3,318 trees.",
@@ -70,6 +91,33 @@ const featuredPosts: Gallery4Item[] = [
 
 const Blog = () => {
   const recentPosts = [
+    {
+      title: 'How to Use Google AI Studio to Build AI Apps for Free',
+      excerpt: 'Google AI Studio is a free, browser-based IDE for prototyping with generative AI models. Learn how to create chatbots, analyze data, and generate content using Gemini — no coding required.',
+      date: 'Jan 28, 2025',
+      readTime: '5 min',
+      category: 'AI Tools',
+      link: 'https://aistudio.google.com/',
+      image: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_SS.width-1300.format-webp.webp',
+    },
+    {
+      title: 'Lovable AI: Build Web Apps by Just Describing What You Want',
+      excerpt: 'Lovable is changing how we create software. Simply describe your idea, and watch as AI generates a complete, functional web application with React, Tailwind, and more — in real-time.',
+      date: 'Jan 27, 2025',
+      readTime: '4 min',
+      category: 'AI Tools',
+      link: 'https://lovable.dev/',
+      image: 'https://lovable.dev/og-image.png',
+    },
+    {
+      title: 'ChatGPT vs Gemini vs Claude: Which AI Assistant Should You Use in 2025?',
+      excerpt: 'A comprehensive comparison of the top AI assistants. Learn the strengths and best use cases for ChatGPT, Google Gemini, and Anthropic Claude to pick the right one for your needs.',
+      date: 'Jan 26, 2025',
+      readTime: '6 min',
+      category: 'AI Comparison',
+      link: 'https://www.theverge.com/24249510/chatgpt-gemini-claude-best-ai-assistant-chatbot',
+      image: 'https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/1200x800/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25287814/STK155_AI_Chatbot_K_Radtke.jpg',
+    },
     {
       title: 'WaveTea - First Student Success Story',
       excerpt: 'Meet our first student entrepreneur! A college student turned their passion for tropical smoothies and iced herbal teas into a thriving beverage brand with complete support from Nexcubic — 100% free. Visit wavetea.shop',
