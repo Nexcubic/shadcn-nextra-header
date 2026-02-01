@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Users, Award, Clock, Target, Send, Linkedin, Mail } from 'lucide-react';
+import { Users, Award, Clock, Target, Send, Linkedin, Mail, Instagram } from 'lucide-react';
 import sanjayProfile from '@/assets/sanjay-profile.jpg';
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -225,13 +225,22 @@ const About = () => {
                     sanjays@nexcubic.com
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/sanjay-s-nexcubic/"
+                    href="https://www.linkedin.com/in/sanjay-s-258781240/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
                   >
                     <Linkedin className="h-4 w-4" />
                     LinkedIn
+                  </a>
+                  <a
+                    href="https://www.instagram.com/sanjay.s.journey/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                  >
+                    <Instagram className="h-4 w-4" />
+                    Instagram
                   </a>
                 </div>
               </div>
