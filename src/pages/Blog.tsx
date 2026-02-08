@@ -1,5 +1,6 @@
 import { Layout } from '@/components/Layout';
 import { Gallery4, Gallery4Item } from '@/components/ui/gallery4';
+import { FinancialHero } from '@/components/ui/hero-section';
 import { Calendar, Clock, ArrowRight, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
@@ -8,6 +9,8 @@ import womensSpecialImg from '@/assets/womens-special.png';
 import studentProgramImg from '@/assets/student-program.png';
 import waveteaImg from '@/assets/wavetea-student.png';
 import tremblyImg from '@/assets/trembly-student.png';
+import mushroomFarmingImg from '@/assets/mushroom-farming.jpg';
+import hydroponicsImg from '@/assets/hydroponics-farming.jpg';
 
 const featuredPosts: Gallery4Item[] = [
   {
@@ -207,6 +210,20 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      {/* NGO Project Section - Mushroom Farming & Hydroponics */}
+      <FinancialHero
+        title={
+          <>
+            Building Self-Sufficient <span className="text-primary">Communities</span>
+          </>
+        }
+        description="We're launching an in-house project to help orphanages and old age homes become self-sufficient through mushroom farming and hydroponics. Fresh food, sustainable income, and dignity for those who need it most."
+        buttonText="Coming Soon"
+        buttonLink="/about#contact"
+        imageUrl1={mushroomFarmingImg}
+        imageUrl2={hydroponicsImg}
+      />
 
       {/* Featured Posts Carousel */}
       <Gallery4 
