@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MoveRight, MessageCircle } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -64,15 +64,6 @@ function AnimatedHero() {
               <Link to="/about#contact">
                 Get Started <MoveRight className="h-4 w-4" />
               </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="gap-4" asChild>
-              <a
-                href="https://chat.whatsapp.com/EKFtXyEKBmVIAthtpeKVY9"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Join WhatsApp Community <MessageCircle className="h-4 w-4" />
-              </a>
             </Button>
           </div>
         </div>
