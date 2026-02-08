@@ -11,8 +11,26 @@ import waveteaImg from '@/assets/wavetea-student.png';
 import tremblyImg from '@/assets/trembly-student.png';
 import mushroomFarmingImg from '@/assets/mushroom-farming.jpg';
 import hydroponicsImg from '@/assets/hydroponics-farming.jpg';
+import aiNewsCoverImg from '@/assets/ai-news-cover.jpg';
+import studentEntrepreneurImg from '@/assets/student-entrepreneur.jpg';
+import chatgptNewsImg from '@/assets/chatgpt-news.jpg';
+import studentStartupTeamImg from '@/assets/student-startup-team.jpg';
 
 const featuredPosts: Gallery4Item[] = [
+  {
+    id: "openai-gpt5-2025",
+    title: "OpenAI Announces GPT-5: The Most Powerful AI Model Yet",
+    description: "OpenAI's GPT-5 promises revolutionary reasoning capabilities, multimodal understanding, and unprecedented accuracy. Here's what developers and businesses need to know.",
+    href: "https://openai.com/",
+    image: chatgptNewsImg,
+  },
+  {
+    id: "ai-agents-future",
+    title: "AI Agents Are Taking Over: How Autonomous AI is Changing Work in 2025",
+    description: "From coding assistants to autonomous research agents, AI is becoming more independent. Explore how AI agents are transforming productivity and what it means for the future.",
+    href: "https://www.anthropic.com/",
+    image: aiNewsCoverImg,
+  },
   {
     id: "google-ai-studio-2025",
     title: "Google AI Studio: Build AI Apps Without Code in 2025",
@@ -94,6 +112,42 @@ const featuredPosts: Gallery4Item[] = [
 
 const Blog = () => {
   const recentPosts = [
+    {
+      title: 'OpenAI GPT-5: What We Know About the Next-Gen AI Model',
+      excerpt: 'OpenAI is preparing to launch GPT-5, promising revolutionary improvements in reasoning, multimodal capabilities, and real-world task completion. Here\'s everything we know so far.',
+      date: 'Feb 5, 2025',
+      readTime: '6 min',
+      category: 'AI News',
+      link: 'https://openai.com/',
+      image: chatgptNewsImg,
+    },
+    {
+      title: 'How AI Agents Are Revolutionizing Software Development',
+      excerpt: 'From Devin to Claude Computer Use, AI agents are now writing code, debugging, and even deploying applications. Discover how autonomous AI is transforming the developer experience.',
+      date: 'Feb 4, 2025',
+      readTime: '5 min',
+      category: 'AI News',
+      link: 'https://www.anthropic.com/',
+      image: aiNewsCoverImg,
+    },
+    {
+      title: 'College Student Launches EdTech Startup with Nexcubic Support',
+      excerpt: 'A 21-year-old engineering student built an innovative learning platform with Nexcubic\'s free student program. From idea validation to complete branding — here\'s their inspiring journey.',
+      date: 'Feb 3, 2025',
+      readTime: '4 min',
+      category: 'Student Startup',
+      link: 'https://www.instagram.com/nexcubic/',
+      image: studentEntrepreneurImg,
+    },
+    {
+      title: 'Student Startup Incubator: How Young Founders Are Building the Future',
+      excerpt: 'Meet the next generation of entrepreneurs. These college students are turning classroom projects into real businesses with mentorship, branding, and tech support from Nexcubic.',
+      date: 'Feb 2, 2025',
+      readTime: '5 min',
+      category: 'Student Startup',
+      link: 'https://www.instagram.com/nexcubic/',
+      image: studentStartupTeamImg,
+    },
     {
       title: 'How to Use Google AI Studio to Build AI Apps for Free',
       excerpt: 'Google AI Studio is a free, browser-based IDE for prototyping with generative AI models. Learn how to create chatbots, analyze data, and generate content using Gemini — no coding required.',
