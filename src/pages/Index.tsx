@@ -1,5 +1,6 @@
 import { Layout } from '@/components/Layout';
 import { AnimatedHero } from '@/components/ui/animated-hero';
+import { FinancialHero } from '@/components/ui/hero-section';
 import IntegrationsSection from '@/components/ui/integrations-section';
 import { ShuffleHero } from '@/components/ui/shuffle-grid';
 import { Code, Bot, Palette, Megaphone, Rocket, GraduationCap } from 'lucide-react';
@@ -56,6 +57,20 @@ const Index = () => {
         <div className="absolute inset-0 gradient-hero opacity-5 pointer-events-none" aria-hidden="true" />
         <AnimatedHero />
       </section>
+
+      {/* NGO Project Section - Mushroom Farming & Hydroponics */}
+      <FinancialHero
+        title={
+          <>
+            Building Self-Sufficient <span className="text-primary">Communities</span>
+          </>
+        }
+        description="We're launching an in-house project to help orphanages and old age homes become self-sufficient through mushroom farming and hydroponics. Fresh food, sustainable income, and dignity for those who need it most."
+        buttonText="Coming Soon"
+        buttonLink="/about#contact"
+        imageUrl1="https://images.unsplash.com/photo-1518977676601-b53f82ber60e?w=800&auto=format&fit=crop&q=80"
+        imageUrl2="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&auto=format&fit=crop&q=80"
+      />
 
       {/* Shuffle Hero Section */}
       <section className="border-t bg-muted/30 py-12">

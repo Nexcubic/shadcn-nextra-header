@@ -3,7 +3,7 @@ import Layout from '@/components/Layout';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Rocket, Palette, Globe, TrendingUp, Users, CheckCircle, ArrowRight, MessageCircle } from 'lucide-react';
+import { GraduationCap, Rocket, Palette, Globe, TrendingUp, Users, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import waveteaImage from '@/assets/wavetea-student.png';
 import tremblyImage from '@/assets/trembly-student.png';
@@ -105,16 +105,6 @@ const Students = () => {
                   <Link to="/about#contact">
                     Apply Now <ArrowRight className="w-4 h-4" />
                   </Link>
-                </Button>
-
-                <Button size="lg" variant="outline" className="gap-2" asChild>
-                  <a
-                    href="https://chat.whatsapp.com/EKFtXyEKBmVIAthtpeKVY9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Join WhatsApp Community <MessageCircle className="w-4 h-4" />
-                  </a>
                 </Button>
 
                 <Button size="lg" variant="outline" asChild>
