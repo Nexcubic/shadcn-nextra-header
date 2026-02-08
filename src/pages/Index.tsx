@@ -5,6 +5,8 @@ import IntegrationsSection from '@/components/ui/integrations-section';
 import { ShuffleHero } from '@/components/ui/shuffle-grid';
 import { Code, Bot, Palette, Megaphone, Rocket, GraduationCap } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import mushroomFarmingImg from '@/assets/mushroom-farming.jpg';
+import hydroponicsImg from '@/assets/hydroponics-farming.jpg';
 
 const Index = () => {
   const features = [
@@ -68,8 +70,8 @@ const Index = () => {
         description="We're launching an in-house project to help orphanages and old age homes become self-sufficient through mushroom farming and hydroponics. Fresh food, sustainable income, and dignity for those who need it most."
         buttonText="Coming Soon"
         buttonLink="/about#contact"
-        imageUrl1="https://images.unsplash.com/photo-1518977676601-b53f82ber60e?w=800&auto=format&fit=crop&q=80"
-        imageUrl2="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&auto=format&fit=crop&q=80"
+        imageUrl1={mushroomFarmingImg}
+        imageUrl2={hydroponicsImg}
       />
 
       {/* Shuffle Hero Section */}
