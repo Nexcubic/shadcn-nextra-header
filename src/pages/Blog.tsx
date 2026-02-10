@@ -19,6 +19,8 @@ import googleAiStudioImg from '@/assets/google-ai-studio.jpg';
 import lovableAiCoverImg from '@/assets/lovable-ai-cover.jpg';
 import aiComparisonImg from '@/assets/ai-comparison.jpg';
 
+import geminiFlashImg from '@/assets/gemini-flash.jpg';
+
 const featuredPosts: Gallery4Item[] = [
   {
     id: "openai-gpt5-2025",
@@ -53,7 +55,7 @@ const featuredPosts: Gallery4Item[] = [
     title: "Google Launches Gemini 2.0 Flash — Faster, Smarter AI for Everyone",
     description: "Google's latest Gemini 2.0 Flash model delivers unprecedented speed and intelligence, making advanced AI accessible for developers and creators worldwide.",
     href: "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
-    image: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_SS.width-1300.format-webp.webp",
+    image: geminiFlashImg,
   },
   {
     id: "waste-recycling-delhi",
@@ -309,22 +311,22 @@ const Blog = () => {
               >
                 {post.link.startsWith('/') ? (
                   <Link to={post.link} className="block">
-                    <div className="bg-muted/50 p-3">
+                    <div className="aspect-[16/10] overflow-hidden">
                       <img 
                         src={post.image} 
                         alt={post.title}
-                        className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>
                   </Link>
                 ) : (
                   <a href={post.link} target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="bg-muted/50 p-3">
+                    <div className="aspect-[16/10] overflow-hidden">
                       <img 
                         src={post.image} 
                         alt={post.title}
-                        className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>
