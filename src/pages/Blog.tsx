@@ -15,6 +15,9 @@ import aiNewsCoverImg from '@/assets/ai-news-cover.jpg';
 import studentEntrepreneurImg from '@/assets/student-entrepreneur.jpg';
 import chatgptNewsImg from '@/assets/chatgpt-news.jpg';
 import studentStartupTeamImg from '@/assets/student-startup-team.jpg';
+import googleAiStudioImg from '@/assets/google-ai-studio.jpg';
+import lovableAiCoverImg from '@/assets/lovable-ai-cover.jpg';
+import aiComparisonImg from '@/assets/ai-comparison.jpg';
 
 const featuredPosts: Gallery4Item[] = [
   {
@@ -36,14 +39,14 @@ const featuredPosts: Gallery4Item[] = [
     title: "Google AI Studio: Build AI Apps Without Code in 2025",
     description: "Google AI Studio lets you prototype and build generative AI applications with Gemini models. Create chatbots, content generators, and more — all from your browser.",
     href: "https://aistudio.google.com/",
-    image: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_SS.width-1300.format-webp.webp",
+    image: googleAiStudioImg,
   },
   {
     id: "lovable-ai-coding",
     title: "Lovable: The AI That Builds Full-Stack Apps From Your Ideas",
     description: "Lovable is revolutionizing how we build software. Describe what you want, and watch AI create beautiful, functional web applications in real-time.",
     href: "https://lovable.dev/",
-    image: "https://lovable.dev/og-image.png",
+    image: lovableAiCoverImg,
   },
   {
     id: "gemini-2-flash",
@@ -155,7 +158,7 @@ const Blog = () => {
       readTime: '5 min',
       category: 'AI Tools',
       link: 'https://aistudio.google.com/',
-      image: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_SS.width-1300.format-webp.webp',
+      image: googleAiStudioImg,
     },
     {
       title: 'Lovable AI: Build Web Apps by Just Describing What You Want',
@@ -164,7 +167,7 @@ const Blog = () => {
       readTime: '4 min',
       category: 'AI Tools',
       link: 'https://lovable.dev/',
-      image: 'https://lovable.dev/og-image.png',
+      image: lovableAiCoverImg,
     },
     {
       title: 'ChatGPT vs Gemini vs Claude: Which AI Assistant Should You Use in 2025?',
@@ -173,7 +176,7 @@ const Blog = () => {
       readTime: '6 min',
       category: 'AI Comparison',
       link: 'https://www.theverge.com/24249510/chatgpt-gemini-claude-best-ai-assistant-chatbot',
-      image: 'https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/1200x800/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25287814/STK155_AI_Chatbot_K_Radtke.jpg',
+      image: aiComparisonImg,
     },
     {
       title: 'WaveTea - First Student Success Story',
