@@ -22,6 +22,7 @@ export const company = {
   phone: '+91 9740501114',
   phoneE164: '+919740501114',
   instagram: 'https://www.instagram.com/nexcubic/',
+  linkedin: 'https://www.linkedin.com/company/nexcubic/',
   founder: {
     name: 'Sanjay S',
     role: 'Founder & Mentor',
