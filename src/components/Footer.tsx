@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
             <Link to="/" className="inline-block">
-              <img src={logo} alt="Nexcubic" className="h-10 w-auto" />
+              <img src={logo} alt="Nexcubic logo" className="h-10 w-auto" />
             </Link>
             <p className="mt-4 max-w-sm text-muted-foreground">
               Helping startups and enterprises build an online presence and accelerate growth through technology. Based in Bangalore, India.
@@ -20,6 +20,9 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link to="/" className="text-muted-foreground hover:text-accent transition-colors">Home</Link></li>
               <li><Link to="/services" className="text-muted-foreground hover:text-accent transition-colors">Services</Link></li>
+              <li><Link to="/startup-support" className="text-muted-foreground hover:text-accent transition-colors">Startup Support</Link></li>
+              <li><Link to="/college-programs" className="text-muted-foreground hover:text-accent transition-colors">College Programs</Link></li>
+              <li><Link to="/case-studies" className="text-muted-foreground hover:text-accent transition-colors">Case Studies</Link></li>
               <li><Link to="/blog" className="text-muted-foreground hover:text-accent transition-colors">Blog</Link></li>
               <li><Link to="/about" className="text-muted-foreground hover:text-accent transition-colors">About Us</Link></li>
             </ul>
@@ -47,7 +50,11 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t pt-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Nexcubic. All rights reserved.
+          © {new Date().getFullYear()} Nexcubic. Founded by{' '}
+          <Link to="/about" className="font-medium text-accent hover:underline">
+            Sanjay S
+          </Link>
+          . All rights reserved.
         </div>
       </div>
     </footer>

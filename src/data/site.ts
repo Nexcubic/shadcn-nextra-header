@@ -25,7 +25,11 @@ export const company = {
   linkedin: 'https://www.linkedin.com/company/nexcubic/',
   founder: {
     name: 'Sanjay S',
-    role: 'Founder & Mentor',
+    role: 'Founder',
+    jobTitle: 'Founder, Nexcubic',
+    location: 'Bengaluru, Karnataka, India',
+    credentials:
+      'AI/ML specialist, Assistant Professor in Computer Science, and Bengaluru-based technology entrepreneur. MCA specialised in Artificial Intelligence & Machine Learning.',
     bio: 'Sanjay S founded Nexcubic and leads its client work and mentoring. He works hands-on across AI automation, web and app development, and digital marketing, and personally runs the free student startup support program.',
     linkedin: 'https://www.linkedin.com/in/sanjay-s-258781240/',
     instagram: 'https://www.instagram.com/sanjay.s.journey/',

@@ -1,352 +1,188 @@
+import { Link } from 'react-router-dom';
 import { Layout } from '@/components/Layout';
+import { Seo } from '@/components/Seo';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Users, Award, Clock, Target, Send, Linkedin, Instagram } from 'lucide-react';
+import { Linkedin, Instagram, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import sanjayProfile from '@/assets/sanjay-profile.jpg';
-import { useState, useEffect } from 'react';
-import { useToast } from '@/hooks/use-toast';
-import { z } from 'zod';
-import { Helmet } from 'react-helmet-async';
+import { SITE_URL, company, services } from '@/data/site';
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
-  phone: z.string().trim().min(1, "Phone number is required").regex(/^[\d\s\+\-\(\)]+$/, "Invalid phone number format"),
-  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
-});
-
-const About = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: '',
-  });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    if (window.location.hash === '#contact') {
-      const element = document.getElementById('contact');
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
-  }, []);
-
-  const values = [
-    {
-      icon: Users,
-      title: 'Customer First',
-      description: 'We put our clients at the center of everything we do, ensuring their success is our success.',
-    },
-    {
-      icon: Award,
-      title: 'Excellence',
-      description: 'We strive for excellence in every project, delivering solutions that exceed expectations.',
-    },
-    {
-      icon: Clock,
-      title: 'Reliability',
-      description: 'Count on us to deliver on time, every time, with consistent and dependable service.',
-    },
-    {
-      icon: Target,
-      title: 'Innovation',
-      description: 'We stay ahead of technology trends to bring you the most effective solutions.',
-    },
-  ];
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrors({});
-    
-    // Validate form data
-    const result = contactSchema.safeParse(formData);
-    if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
-      result.error.errors.forEach((err) => {
-        if (err.path[0]) {
-          fieldErrors[err.path[0] as string] = err.message;
-        }
-      });
-      setErrors(fieldErrors);
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('https://formspree.io/f/xzdbegyq', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+const About = () => (
+  <Layout>
+    <Seo
+      title="About Nexcubic | Founded by Sanjay S in Bengaluru"
+      description="Nexcubic is a Bengaluru-based digital solutions company founded by Sanjay S, an AI/ML specialist and Assistant Professor in Computer Science. Meet the founder and how we work."
+      path="/about"
+      breadcrumbs={[{ name: 'About', path: '/about' }]}
+      schemas={[
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          '@id': `${SITE_URL}/about#sanjay-s`,
+          name: company.founder.name,
+          jobTitle: company.founder.jobTitle,
+          url: company.founder.linkedin,
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Bengaluru',
+            addressRegion: company.region,
+            addressCountry: 'IN',
+          },
+          worksFor: {
+            '@type': 'Organization',
+            name: company.name,
+            url: SITE_URL,
+            logo: `${SITE_URL}/favicon.png`,
+          },
+          sameAs: [company.founder.linkedin],
         },
-        body: JSON.stringify(formData),
-      });
-      
-      if (response.ok) {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for reaching out. We'll get back to you soon.",
-        });
-        setFormData({ name: '', phone: '', email: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+        {
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: 'About Nexcubic',
+          url: `${SITE_URL}/about`,
+          mainEntity: { '@id': `${SITE_URL}/about#sanjay-s` },
+        },
+      ]}
+    />
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
+    <Breadcrumbs items={[{ name: 'About', path: '/about' }]} />
 
-  return (
-    <Layout>
-      <Helmet>
-        <title>About Us - Nexcubic | Digital Solutions Company in Bangalore</title>
-        <meta name="description" content="Learn about Nexcubic, a Bangalore-based digital solutions company helping startups and enterprises build online presence through web development, AI automation, and branding." />
-        <meta name="keywords" content="about Nexcubic, digital solutions Bangalore, tech company India, startup support, web development company" />
-        <link rel="canonical" href="https://nexcubic.com/about" />
-        <meta property="og:title" content="About Nexcubic - Digital Solutions Company" />
-        <meta property="og:description" content="Helping startups and enterprises build an online presence and accelerate growth through technology." />
-        <meta property="og:url" content="https://nexcubic.com/about" />
-      </Helmet>
-
-      {/* Header */}
-      <section className="relative overflow-hidden border-b bg-muted/30">
-        <div className="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl animate-fade-in">
-              About Nexcubic
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              A digital solutions company based in Bangalore, India, specializing in helping startups and enterprises build an online presence and accelerate growth through technology.
-            </p>
-          </div>
+    <section className="pb-12 pt-8">
+      <div className="mx-auto max-w-3xl px-4 lg:px-8">
+        <h1 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          About Nexcubic
+        </h1>
+        <p className="mt-6 text-lg text-muted-foreground">
+          Nexcubic was founded by Sanjay S, an AI/ML specialist, Assistant Professor in Computer Science, and
+          Bengaluru-based technology entrepreneur. Nexcubic builds AI-driven digital solutions for startups and
+          enterprises — including AI agents, web and app development, UI/UX design, branding, and digital marketing.
+          Sanjay holds an MCA specialized in Artificial Intelligence &amp; Machine Learning, and is actively engaged in
+          Bengaluru's developer and AI community ecosystem.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button asChild>
+            <Link to="/">Back to the Nexcubic homepage</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link to="/services">Explore our services</Link>
+          </Button>
+          <Button asChild variant="ghost">
+            <Link to="/contact">Contact us</Link>
+          </Button>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Mission */}
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="animate-fade-in">
-              <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-                Our Mission
-              </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
-                At Nexcubic, we believe that every business deserves access to cutting-edge digital solutions. Our mission is to empower organizations by providing technology solutions that drive growth and efficiency.
-              </p>
-              <p className="mt-4 text-muted-foreground">
-                We specialize in transforming ideas into impactful digital experiences. Whether you're a startup looking to establish your online presence or an enterprise seeking to accelerate growth, we have the expertise to help you succeed.
-              </p>
-              <p className="mt-4 text-muted-foreground">
-                Based in Bangalore, India, we work with clients globally to deliver custom web and mobile applications, AI automation solutions, branding, and digital marketing services.
-              </p>
+    <section className="border-t py-14" aria-labelledby="founder">
+      <div className="mx-auto max-w-3xl px-4 lg:px-8">
+        <h2 id="founder" className="font-display text-2xl font-bold text-foreground sm:text-3xl">
+          Founder
+        </h2>
+        <div className="mt-8 grid gap-8 sm:grid-cols-[200px_1fr] sm:items-start">
+          <img
+            src={sanjayProfile}
+            alt="Sanjay S, founder of Nexcubic, AI/ML specialist and Assistant Professor in Computer Science based in Bengaluru"
+            className="w-full max-w-[200px] rounded-xl border object-cover shadow-soft"
+            loading="lazy"
+          />
+          <dl className="space-y-3 text-muted-foreground">
+            <div>
+              <dt className="font-semibold text-foreground">Name</dt>
+              <dd>{company.founder.name}</dd>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {values.map((value, index) => (
-                <div
-                  key={value.title}
-                  className="rounded-xl border bg-card p-6 shadow-soft animate-fade-in-up"
-                  style={{ animationDelay: `${0.1 * index}s` }}
+            <div>
+              <dt className="font-semibold text-foreground">Role</dt>
+              <dd>Founder</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-foreground">Location</dt>
+              <dd>Bengaluru, Karnataka, India</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-foreground">LinkedIn</dt>
+              <dd>
+                <a
+                  href={company.founder.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-accent hover:underline"
                 >
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                    <value.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-display font-semibold text-foreground">
-                    {value.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder Section */}
-      <section className="border-t py-20">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-              Meet Our Founder
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              The visionary behind Nexcubic
-            </p>
-          </div>
-          <div className="mx-auto max-w-3xl">
-            <div className="flex flex-col md:flex-row items-center gap-8 rounded-2xl border bg-card p-8 shadow-soft">
-              <div className="flex-shrink-0">
-                <img
-                  src={sanjayProfile}
-                  alt="Sanjay S - Founder & Mentor at Nexcubic"
-                  className="h-48 w-48 rounded-full object-cover border-4 border-accent/20 shadow-lg"
-                />
-              </div>
-              <div className="text-center md:text-left">
-                <h3 className="font-display text-2xl font-bold text-foreground">
-                  Sanjay S
-                </h3>
-                <p className="text-accent font-medium mt-1">Founder & Mentor</p>
-                <p className="mt-4 text-muted-foreground">
-                  A passionate tech entrepreneur and mentor dedicated to helping startups and students succeed in the digital world. With expertise in AI, web development, and digital marketing, Sanjay leads Nexcubic's mission to empower businesses with cutting-edge technology solutions.
-                </p>
-                <div className="mt-6 flex items-center justify-center md:justify-start gap-4">
-                  <a
-                    href="https://www.linkedin.com/in/sanjay-s-258781240/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-[#0A66C2] text-white hover:opacity-80 transition-opacity"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/sanjay.s.journey/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white hover:opacity-80 transition-opacity"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section id="contact" className="border-t bg-muted/30 py-20">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="mx-auto max-w-2xl">
-            <header className="text-center mb-12">
-              <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-                Get In Touch
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-              </p>
-            </header>
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name <span className="text-destructive">*</span>
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Your name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={errors.name ? 'border-destructive' : ''}
-                    aria-describedby={errors.name ? 'name-error' : undefined}
-                  />
-                  {errors.name && <p id="name-error" className="text-sm text-destructive mt-1">{errors.name}</p>}
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number <span className="text-destructive">*</span>
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    placeholder="+91 9740501114"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className={errors.phone ? 'border-destructive' : ''}
-                    aria-describedby={errors.phone ? 'phone-error' : undefined}
-                  />
-                  {errors.phone && <p id="phone-error" className="text-sm text-destructive mt-1">{errors.phone}</p>}
-                </div>
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email <span className="text-destructive">*</span>
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={errors.email ? 'border-destructive' : ''}
-                  aria-describedby={errors.email ? 'email-error' : undefined}
-                />
-                {errors.email && <p id="email-error" className="text-sm text-destructive mt-1">{errors.email}</p>}
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message <span className="text-destructive">*</span>
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  placeholder="Tell us about your project..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={errors.message ? 'border-destructive' : ''}
-                  aria-describedby={errors.message ? 'message-error' : undefined}
-                />
-                {errors.message && <p id="message-error" className="text-sm text-destructive mt-1">{errors.message}</p>}
-              </div>
-              <Button type="submit" size="lg" className="w-full gap-2" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-                <Send className="h-4 w-4" />
-              </Button>
-            </form>
-            <div className="mt-8 text-center text-sm text-muted-foreground">
-              <p>Or reach out directly:</p>
-              <p className="mt-2">
-                <a href="mailto:sanjays@nexcubic.com" className="text-accent hover:underline">
-                  sanjays@nexcubic.com
+                  <Linkedin className="h-4 w-4" aria-hidden="true" /> linkedin.com/in/sanjay-s-258781240
                 </a>
-                {' '} | {' '}
-                <a href="tel:+919740501114" className="text-accent hover:underline">
-                  +91 9740501114
-                </a>
-              </p>
+              </dd>
             </div>
-          </div>
+          </dl>
         </div>
-      </section>
-    </Layout>
-  );
-};
+        <p className="mt-8 text-muted-foreground">{company.founder.bio}</p>
+        <div className="mt-6 flex flex-wrap gap-4 text-sm">
+          <a
+            href={company.founder.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-accent hover:underline"
+          >
+            <Instagram className="h-4 w-4" aria-hidden="true" /> Instagram
+          </a>
+          <a
+            href={company.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-accent hover:underline"
+          >
+            <Linkedin className="h-4 w-4" aria-hidden="true" /> Nexcubic on LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section className="border-t bg-muted/30 py-14" aria-labelledby="what-we-build">
+      <div className="mx-auto max-w-3xl px-4 lg:px-8">
+        <h2 id="what-we-build" className="font-display text-2xl font-bold text-foreground sm:text-3xl">
+          What we build
+        </h2>
+        <ul className="mt-6 space-y-3">
+          {services.map((service) => (
+            <li key={service.slug}>
+              <Link
+                to={service.slug}
+                className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
+              >
+                {service.navLabel} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <p className="text-muted-foreground">{service.summary}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section className="border-t py-14" aria-labelledby="reach-us">
+      <div className="mx-auto max-w-3xl px-4 lg:px-8">
+        <h2 id="reach-us" className="font-display text-2xl font-bold text-foreground sm:text-3xl">
+          Reach us
+        </h2>
+        <ul className="mt-6 space-y-3 text-muted-foreground">
+          <li className="flex items-center gap-2">
+            <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
+            <a href={`mailto:${company.email}`} className="hover:text-accent">
+              {company.email}
+            </a>
+          </li>
+          <li className="flex items-center gap-2">
+            <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
+            <a href={`tel:${company.phoneE164}`} className="hover:text-accent">
+              {company.phone}
+            </a>
+          </li>
+          <li className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
+            <span>Bengaluru, Karnataka, India</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </Layout>
+);
 
 export default About;
