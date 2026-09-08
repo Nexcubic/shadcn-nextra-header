@@ -14,9 +14,11 @@ export function Header() {
   const links = [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Students', href: '/students' },
+    { label: 'Startup Support', href: '/startup-support' },
+    { label: 'Colleges', href: '/college-programs' },
+    { label: 'Case Studies', href: '/case-studies' },
     { label: 'Blog', href: '/blog' },
-    { label: 'About Us', href: '/about' },
+    { label: 'About', href: '/about' },
   ];
 
   React.useEffect(() => {

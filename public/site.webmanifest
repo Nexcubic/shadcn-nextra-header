@@ -1,0 +1,13 @@
+{
+  "name": "Nexcubic",
+  "short_name": "Nexcubic",
+  "description": "Bangalore-based digital solutions company: web development, mobile apps, AI automation, branding and digital marketing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#122139",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
