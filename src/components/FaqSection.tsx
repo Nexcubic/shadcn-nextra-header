@@ -14,17 +14,18 @@ export function FaqSection({
   headingId = 'faq',
 }: FaqSectionProps) {
   return (
-    <section className="border-t py-16 lg:py-20" aria-labelledby={headingId}>
-      <div className="mx-auto max-w-3xl px-4 lg:px-8">
-        <h2 id={headingId} className="font-display text-2xl font-bold text-foreground sm:text-3xl">
+    <section className="border-t py-20 lg:py-28" aria-labelledby={headingId}>
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <p className="section-kicker">FAQ</p>
+        <h2 id={headingId} className="mt-4 font-display text-4xl font-black text-foreground sm:text-5xl">
           {heading}
         </h2>
         {intro && <p className="mt-3 text-muted-foreground">{intro}</p>}
-        <dl className="mt-8 divide-y">
+        <dl className="mt-10 grid border-l border-t md:grid-cols-2">
           {faqs.map((faq) => (
-            <div key={faq.q} className="py-5">
-              <dt className="font-display text-lg font-semibold text-foreground">{faq.q}</dt>
-              <dd className="mt-2 text-muted-foreground">{faq.a}</dd>
+            <div key={faq.q} className="border-b border-r p-6">
+              <dt className="font-display text-lg font-bold text-foreground">{faq.q}</dt>
+              <dd className="mt-3 leading-relaxed text-muted-foreground">{faq.a}</dd>
             </div>
           ))}
         </dl>
