@@ -1,10 +1,10 @@
-# Nexcubic redesign roadmap
+# Nexcubic proof-forward rebuild roadmap
 
-- [ ] Rebuild the visual system and global navigation/footer
-- [ ] Create the new homepage narrative and signature ecosystem animations
-- [ ] Create /learn, /talent, /connect, /labs, /work, /about, and /contact
-- [ ] Preserve legacy public routes with redirects or compatible pages
-- [ ] Update verified content, SEO metadata, schema, sitemap, robots, and llms.txt
-- [ ] Add two-path contact flow using the existing form delivery
-- [ ] Add security headers suitable for the static deployment
-- [ ] Validate desktop, mobile, keyboard, reduced motion, routes, forms, links, and build
+- [ ] Add build-time prerendering for all public routes
+- [ ] Generate and validate sitemap, robots, metadata, and structured data
+- [ ] Rebuild the visual system, navigation, footer, and mobile sticky CTA
+- [ ] Rebuild the homepage in the requested proof-forward section order
+- [ ] Refresh services, service detail, case studies, about, and contact pages
+- [ ] Preserve auxiliary routes and the existing contact form delivery
+- [ ] Mark unavailable proof metrics and legal content honestly
+- [ ] Validate HTML output, routes, forms, links, accessibility, responsive layouts, and build
