@@ -4,7 +4,6 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
-import logo from '@/assets/logo.png';
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
@@ -12,13 +11,10 @@ export function Header() {
   const location = useLocation();
 
   const links = [
-    { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Startup Support', href: '/startup-support' },
-    { label: 'Colleges', href: '/college-programs' },
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Blog', href: '/blog' },
+    { label: 'Work', href: '/case-studies' },
     { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   React.useEffect(() => {
@@ -39,24 +35,25 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 mx-auto w-full max-w-6xl border-b border-transparent transition-all duration-300 md:rounded-lg md:border',
+        'sticky top-0 z-50 w-full border-b transition-all duration-300',
         {
-          'bg-background/95 supports-[backdrop-filter]:bg-background/80 border-border backdrop-blur-lg md:top-4 md:max-w-5xl md:shadow-soft':
+          'border-border bg-background/95 shadow-soft backdrop-blur-lg':
             scrolled && !open,
-          'bg-background/90': open,
+          'bg-background': open,
         },
       )}
     >
       <nav
         className={cn(
-          'flex h-16 w-full items-center justify-between px-4 transition-all duration-300 md:h-14',
+          'mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-4 transition-all duration-300 lg:px-8',
           {
-            'md:px-3': scrolled,
+            'md:h-16': scrolled,
           },
         )}
       >
-        <Link to="/" className="flex items-center hover:opacity-90 transition-opacity">
-          <img src={logo} alt="Nexcubic" className="h-10 w-auto" />
+        <Link to="/" className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-80" aria-label="Nexcubic home">
+          <span className="grid size-9 place-items-center bg-primary font-display text-lg font-black text-primary-foreground">N</span>
+          <span className="font-display text-lg font-black uppercase tracking-normal">Nexcubic</span>
         </Link>
         <div className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
@@ -72,8 +69,8 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Link to="/about#contact">
-            <Button className="ml-2">Contact Us</Button>
+           <Link to="/contact">
+             <Button className="ml-2 min-h-11">Start a Project</Button>
           </Link>
         </div>
         <Button
@@ -116,8 +113,8 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link to="/about#contact" className="mt-4">
-              <Button className="w-full">Contact Us</Button>
+             <Link to="/contact" className="mt-4">
+               <Button className="min-h-11 w-full">Start a Project</Button>
             </Link>
           </div>
         </div>

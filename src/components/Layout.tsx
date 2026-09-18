@@ -2,6 +2,8 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -31,6 +33,12 @@ export function Layout({ children }: LayoutProps) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <Link
+        to="/contact"
+        className="fixed inset-x-4 bottom-4 z-40 flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-5 font-semibold text-primary-foreground shadow-elevated md:hidden"
+      >
+        Start a Project <ArrowUpRight className="size-4" aria-hidden="true" />
+      </Link>
     </div>
   );
 }

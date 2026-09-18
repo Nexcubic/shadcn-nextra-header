@@ -1,60 +1,62 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
+import { company, services } from '@/data/site';
 
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/30">
-      <div className="mx-auto max-w-6xl px-4 py-12 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-4">
+    <footer className="border-t bg-primary text-primary-foreground">
+      <div className="mx-auto max-w-7xl px-4 py-16 pb-24 lg:px-8 lg:pb-16">
+        <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-2">
-            <Link to="/" className="inline-block">
-              <img src={logo} alt="Nexcubic logo" className="h-10 w-auto" />
+            <Link to="/" className="inline-flex items-center gap-3">
+              <span className="grid size-10 place-items-center bg-accent font-display text-xl font-black text-accent-foreground">N</span>
+              <span className="font-display text-xl font-black uppercase">Nexcubic</span>
             </Link>
-            <p className="mt-4 max-w-sm text-muted-foreground">
-              Helping startups and enterprises build an online presence and accelerate growth through technology. Based in Bangalore, India.
+            <p className="mt-5 max-w-md text-primary-foreground/70">
+              Web, mobile, AI automation, branding and digital marketing for startups and enterprises. Based in Bangalore, India.
             </p>
           </div>
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Quick Links</h4>
+          <div className="md:col-span-3 md:col-start-7">
+            <h2 className="mb-4 font-display text-sm font-bold uppercase">Services</h2>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-muted-foreground hover:text-accent transition-colors">Home</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-accent transition-colors">Services</Link></li>
-              <li><Link to="/startup-support" className="text-muted-foreground hover:text-accent transition-colors">Startup Support</Link></li>
-              <li><Link to="/college-programs" className="text-muted-foreground hover:text-accent transition-colors">College Programs</Link></li>
-              <li><Link to="/case-studies" className="text-muted-foreground hover:text-accent transition-colors">Case Studies</Link></li>
-              <li><Link to="/blog" className="text-muted-foreground hover:text-accent transition-colors">Blog</Link></li>
-              <li><Link to="/about" className="text-muted-foreground hover:text-accent transition-colors">About Us</Link></li>
+              {services.map((service) => <li key={service.slug}><Link to={service.slug} className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">{service.navLabel}</Link></li>)}
             </ul>
           </div>
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Contact</h4>
-            <ul className="space-y-3 text-muted-foreground">
+          <div className="md:col-span-3">
+            <h2 className="mb-4 font-display text-sm font-bold uppercase">Contact</h2>
+            <ul className="space-y-3 text-primary-foreground/70">
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-accent" />
-                <a href="mailto:sanjays@nexcubic.com" className="hover:text-accent transition-colors">
-                  sanjays@nexcubic.com
+                <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
+                <a href={`mailto:${company.email}`} className="transition-colors hover:text-primary-foreground">
+                  {company.email}
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-accent" />
-                <a href="tel:+919740501114" className="hover:text-accent transition-colors">
-                  +91 9740501114
+                <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
+                <a href={`tel:${company.phoneE164}`} className="transition-colors hover:text-primary-foreground">
+                  {company.phone}
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-accent" />
+                <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
                 <span>Bangalore, India</span>
               </li>
             </ul>
+            <div className="mt-5 flex gap-4 text-sm">
+              <a href={company.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-accent">LinkedIn <ArrowUpRight className="size-3" /></a>
+              <a href={company.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-accent">Instagram <ArrowUpRight className="size-3" /></a>
+            </div>
           </div>
         </div>
-        <div className="mt-12 border-t pt-6 text-center text-sm text-muted-foreground">
+        <div className="mt-12 flex flex-col gap-3 border-t border-primary-foreground/20 pt-6 text-sm text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between">
+          <span>
           © {new Date().getFullYear()} Nexcubic. Founded by{' '}
-          <Link to="/about" className="font-medium text-accent hover:underline">
+          <Link to="/about" className="font-medium text-primary-foreground hover:text-accent">
             Sanjay S
           </Link>
-          . All rights reserved.
+          .
+          </span>
+          <span>Privacy Policy · Terms — [CONTENT NEEDED]</span>
         </div>
       </div>
     </footer>
